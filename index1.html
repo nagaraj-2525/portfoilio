@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nagaraj M - Digital Marketing Executive & WordPress Developer. Expert in Performance Marketing, Automation, and Web Development.">
+    <title>Nagaraj M | Digital Marketing Executive</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Outfit', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#6366f1',
+                            blue: '#3b82f6',
+                            dark: '#0f172a',
+                            orange: '#f59e0b',
+                            green: '#22c55e',
+                            pink: '#ec4899'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'scroll-vertical': 'scrollVertical 10s linear infinite alternate',
+                        'gradient-x': 'gradient-x 3s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        scrollVertical: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(calc(-100% + 250px))' }
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .gradient-text-animated {
+            background: linear-gradient(270deg, #6366f1, #3b82f6, #ec4899);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-x 3s ease infinite;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Colorful Navbar */
+        .nav-colorful {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        
+        /* Browser Mockup for Projects */
+        .browser-mockup {
+            border-top: 24px solid #1e293b;
+            position: relative;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+        .browser-mockup::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            left: 12px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef4444;
+            box-shadow: 16px 0 0 #eab308, 32px 0 0 #22c55e;
+            z-index: 10;
+        }
+        .scroll-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+        }
+        /* Gradient placeholder for missing images */
+        .scroll-content {
+            width: 100%;
+            display: block;
+            min-height: 400px;
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+        }
+        /* Hide broken image icon */
+        img.scroll-content {
+            text-indent: -10000px; 
+        }
+
+        /* Project Name Card Overlay */
+        .project-name-card {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .project-name-card:hover {
+            background: #f0f9ff;
+        }
+
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Colorful Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-colorful shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-brand-purple p-0.5 shadow-sm">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQGEcM-TOFfwtg/profile-displayphoto-crop_800_800/B56ZlNhzFnIsAM-/0/1757942330621?e=1767225600&v=beta&t=QzOu_0Tevnd4GjNrjAkj9BDaktD16CTTWwaKTgH1eYk" alt="Logo" class="w-full h-full object-cover rounded-full">
+                </div>
+                <span class="text-xl font-bold text-slate-900 tracking-tight">Nagaraj M</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-1 bg-white/60 p-1.5 rounded-full border border-slate-200 shadow-sm backdrop-blur-md">
+                <a href="#about" class="px-5 py-2 text-sm font-medium text-slate-600 hover:text-brand-purple hover:bg-white hover:shadow-sm rounded-full transition-all">About</a>
+                <a href="#skills" class="px-5 py-2 text-sm font-medium text-slate-600 hover:text-brand-purple hover:bg-white hover:shadow-sm rounded-full transition-all">Skills</a>
+                <a href="#experience" class="px-5 py-2 text-sm font-medium text-slate-600 hover:text-brand-purple hover:bg-white hover:shadow-sm rounded-full transition-all">Experience</a>
+                <a href="#projects" class="px-5 py-2 text-sm font-medium text-slate-600 hover:text-brand-purple hover:bg-white hover:shadow-sm rounded-full transition-all">Projects</a>
+            </div>
+
+            <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 rounded-full bg-slate-900 text-white text-sm font-bold shadow-lg hover:shadow-xl hover:bg-slate-800 transition-all transform hover:-translate-y-0.5">
+                Let's Talk
+            </a>
+            
+            <button class="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute w-full shadow-xl z-50">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#about" class="font-medium text-slate-600 hover:text-brand-purple">About</a>
+                <a href="#skills" class="font-medium text-slate-600 hover:text-brand-purple">Skills</a>
+                <a href="#experience" class="font-medium text-slate-600 hover:text-brand-purple">Experience</a>
+                <a href="#projects" class="font-medium text-slate-600 hover:text-brand-purple">Projects</a>
+                <a href="#contact" class="font-bold text-brand-purple">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-44 lg:pb-28 container mx-auto px-6 relative">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+            
+            <!-- Hero Text -->
+            <div class="lg:w-1/2 reveal active text-center lg:text-left order-2 lg:order-1">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-purple-100 shadow-sm text-brand-purple text-xs font-bold mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                    </span>
+                    Digital Marketing Executive
+                </div>
+                
+                <!-- Updated Heading Size (Smaller as requested) -->
+                <h1 class="text-3xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] mb-6">
+                    Driving Digital Growth<br>
+                    Through <span class="gradient-text-animated">Performance</span><br>
+                    & Automation
+                </h1>
+                
+                <p class="text-lg text-slate-500 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light">
+                    Specializing in Meta Ads, Google Ads, SEO, WordPress Development & CRM Automation based in Chennai, India.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
+                    <a href="#projects" class="px-8 py-4 rounded-xl btn-primary font-bold shadow-lg flex items-center gap-2 text-sm transition-transform hover:-translate-y-1">
+                        View Portfolio <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://drive.google.com/uc?export=download&id=1wpeV62O7devp-O-n7ityFPxavxJG0Ro3" class="px-8 py-4 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold hover:border-brand-purple hover:text-brand-purple transition-all flex items-center gap-2 text-sm hover:shadow-md">
+                        <i data-lucide="download" class="w-4 h-4"></i> Get Resume
+                    </a>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="grid grid-cols-3 gap-8 border-t border-slate-100 pt-8 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900">2+</h3>
+                        <p class="text-sm text-slate-500 font-medium">Years Exp</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900">50+</h3>
+                        <p class="text-sm text-slate-500 font-medium">Projects</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900">3x</h3>
+                        <p class="text-sm text-slate-500 font-medium">Best Employee</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image / Visual -->
+            <div class="lg:w-1/2 flex justify-center reveal active order-1 lg:order-2" style="transition-delay: 200ms;">
+                <div class="relative w-[320px] h-[380px] lg:w-[480px] lg:h-[550px]">
+                    <!-- Main Card (No Border, Big Image) -->
+                    <div class="absolute inset-0 z-10 animate-float">
+                        <div class="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl relative bg-white">
+                             <img src="https://media.licdn.com/dms/image/v2/D5603AQGEcM-TOFfwtg/profile-displayphoto-crop_800_800/B56ZlNhzFnIsAM-/0/1757942330621?e=1767225600&v=beta&t=QzOu_0Tevnd4GjNrjAkj9BDaktD16CTTWwaKTgH1eYk" alt="Nagaraj M" class="w-full h-full object-cover">
+                             <!-- Overlay Gradient -->
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                             <div class="absolute bottom-8 left-8 text-white">
+                                <h3 class="text-3xl font-bold">Nagaraj M</h3>
+                                <p class="text-white/80 font-medium mt-1 flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Chennai, India</p>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Elements behind -->
+                    <div class="absolute -top-12 -right-12 w-72 h-72 bg-purple-300/30 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute -bottom-12 -left-12 w-72 h-72 bg-blue-300/30 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2 reveal">
+                    <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">About Me</span>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6">Passionate Digital Marketer & <span class="gradient-text-animated">Developer</span></h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        I am a Digital Marketing Executive with over 2+ years of experience driving lead generation and scalable growth through performance marketing. My expertise lies in managing high-budget campaigns on Meta Ads and Google Ads, executing comprehensive SEO/SEM initiatives, and aligning marketing strategies with business workflows using Odoo CRM for better ROI.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Beyond marketing, I possess strong capabilities in WordPress website development, delivering responsive, conversion-focused websites using Elementor with HTML, CSS, and JavaScript customization. I am data-driven, leveraging Google Analytics and Search Console to optimize performance and support informed business decisions.
+                    </p>
+                </div>
+                <div class="md:w-1/2 reveal" style="transition-delay: 200ms;">
+                    <!-- Professional Strengths -->
+                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-lg">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Professional Strengths</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-green-100 text-brand-green flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Analytical Approach</h4>
+                                    <p class="text-sm text-slate-500">Strong problem-solving mindset for campaign optimization.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center shrink-0"><i data-lucide="users" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Collaboration</h4>
+                                    <p class="text-sm text-slate-500">Effective communication with cross-functional teams.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-purple-100 text-brand-purple flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Time Management</h4>
+                                    <p class="text-sm text-slate-500">Ability to manage multiple priorities within timelines.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Proactive Mindset</h4>
+                                    <p class="text-sm text-slate-500">Continuous learning and improvement focus.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills & Tools Section -->
+    <section id="skills" class="py-24 bg-slate-50 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">My Toolbox</span>
+                <h2 class="text-4xl font-bold text-slate-900">Technical Skills & <span class="gradient-text-animated">Tools</span></h2>
+                <p class="text-slate-500 mt-4 text-base max-w-xl mx-auto">Leveraging a comprehensive tech stack to deliver measurable results.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal group">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-blue mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="target" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Paid Advertising</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-blue"></i> Meta Ads Manager</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-blue"></i> Google Ads</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-blue"></i> LinkedIn Ads</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-blue"></i> Lead Generation</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-brand-purple mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="search" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">SEO & SEM</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> Keyword Research</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> On-Page SEO</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> Content Optimization</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> Google Keyword Planner</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="settings" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Automation & CRM</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i> Odoo CRM</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i> Make.com (Integromat)</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i> Workflow Automation</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-orange"></i> Lead Management</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-brand-green mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="code" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Web Development</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> WordPress & Elementor</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> HTML, CSS, JavaScript</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Website Optimization</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Mobile Responsiveness</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-brand-pink mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="share-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Social Media</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-pink"></i> LinkedIn/FB/Insta Strategy</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-pink"></i> Zoho Social & Odoo Social</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-pink"></i> Content Scheduling</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-pink"></i> SMO Strategies</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="p-8 rounded-3xl bg-white hover:shadow-xl transition-all border border-slate-100 reveal" style="transition-delay: 500ms;">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-brand-purple mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i data-lucide="message-square" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Messaging & Email</h3>
+                    <ul class="text-slate-600 space-y-3 text-sm font-medium">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> Odoo Email Marketing</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> WhatsApp Automation</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> ChatIQ & AISensy</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-4 h-4 text-brand-purple"></i> Automated Follow-ups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section (Restored) -->
+    <section id="achievements" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">Achievements</span>
+                <h2 class="text-4xl font-bold text-slate-900">Milestones & <span class="gradient-text-animated">Recognition</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-yellow-400 to-orange-500 text-white text-center shadow-xl hover:scale-105 transition-all reveal">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"><i data-lucide="award" class="w-6 h-6"></i></div>
+                    <h3 class="text-4xl font-bold mb-2">3x</h3>
+                    <p class="font-bold text-sm uppercase tracking-wide">Best Employee</p>
+                    <p class="text-xs opacity-90 mt-2">Consistent High Performance</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white text-center shadow-xl hover:scale-105 transition-all reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"><i data-lucide="trending-up" class="w-6 h-6"></i></div>
+                    <h3 class="text-4xl font-bold mb-2">42%</h3>
+                    <p class="font-bold text-sm uppercase tracking-wide">Social Engagement</p>
+                    <p class="text-xs opacity-90 mt-2">Increase in Metrics</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-blue-400 to-blue-600 text-white text-center shadow-xl hover:scale-105 transition-all reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"><i data-lucide="users" class="w-6 h-6"></i></div>
+                    <h3 class="text-4xl font-bold mb-2">35%</h3>
+                    <p class="font-bold text-sm uppercase tracking-wide">Lead Growth</p>
+                    <p class="text-xs opacity-90 mt-2">Inbound Inquiries</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-purple-500 to-pink-600 text-white text-center shadow-xl hover:scale-105 transition-all reveal" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                    <h3 class="text-4xl font-bold mb-2">1</h3>
+                    <p class="font-bold text-sm uppercase tracking-wide">WordCamp Delhi</p>
+                    <p class="text-xs opacity-90 mt-2">Community Contributor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Restored Full Content - Updated Text Size) -->
+    <section id="experience" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">Work Experience</span>
+                <h2 class="text-4xl font-bold text-slate-900">Professional <span class="gradient-text-animated">Journey</span></h2>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-[2rem] p-10 md:p-12 shadow-xl border border-slate-100 reveal">
+                    <!-- Header -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-slate-100 pb-8">
+                        <div class="flex items-center gap-5">
+                            <div class="w-16 h-16 bg-white border border-slate-200 rounded-2xl flex items-center justify-center p-2 shadow-sm">
+                                <!-- Using placeholder icon if logo fails to load -->
+                                <img src="https://avoornetworks.in/wp-content/uploads/2025/12/avoor-logo.svg" onerror="this.src='https://via.placeholder.com/64?text=AN'" alt="Avoor Networks" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-900">Avoor Networks Pvt Ltd</h3>
+                                <p class="text-brand-purple font-medium mt-1">Digital Marketing Executive & Web Development</p>
+                            </div>
+                        </div>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-sm font-bold text-slate-600 self-start md:self-center border border-slate-200">Aug 2023 – Present</span>
+                    </div>
+
+                    <!-- Detailed Content List -->
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg"> <!-- Increased text size here -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-purple-100 text-brand-purple flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Planned, executed, and optimized performance marketing campaigns using <strong>Meta Ads Manager</strong> and <strong>Google Ads</strong>, managing targeting, keyword research, creatives, budgets, and continuous optimization to improve CTR, conversions, CPL, and ROI.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-brand-blue flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Executed <strong>SEO and SEM strategies</strong> including keyword research, on-page SEO, content optimization, internal linking, and blog publishing using Google Keyword Planner and SEMrush to improve organic visibility and inbound traffic.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-pink-100 text-brand-pink flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Managed LinkedIn, Facebook, and Instagram with structured content planning, scheduling, reels/posts, engagement strategies, and lead-focused social media optimization (SMO) using <strong>Zoho Social</strong> and <strong>Odoo Social Media</strong>.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Designed and supported digital campaigns with marketing creatives such as posters, banners, and ad visuals using <strong>Canva</strong>, ensuring brand consistency across platforms.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-green-100 text-brand-green flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Built and managed <strong>WordPress websites</strong> for service-based and eCommerce clients using Elementor, creating responsive and conversion-focused layouts and landing pages with HTML, CSS, and JavaScript customization.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-indigo-100 text-brand-purple flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Automated marketing workflows, lead routing, and follow-ups using <strong>Make.com</strong> and <strong>Odoo CRM</strong> to improve efficiency and response time.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                            <p>Managed <strong>WhatsApp marketing</strong> and automation using ChatIQ and AISensy, enabling automated replies, reminders, and follow-ups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">Portfolio</span>
+                <h2 class="text-4xl font-bold text-slate-900">Featured <span class="gradient-text-animated">Websites</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: ANPL Shop -->
+                <a href="https://anpl.shop" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">ANPL Shop</h3>
+                            <p class="text-sm text-slate-500 font-medium">E-Commerce</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 2: Avoor Networks -->
+                <a href="https://avoornetworks.com" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 100ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-1 group-hover:scale-110 transition-transform">
+                            <img src="https://avoornetworks.in/wp-content/uploads/2025/12/avoor-logo.svg" alt="Avoor Logo" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Avoor Networks</h3>
+                            <p class="text-sm text-slate-500 font-medium">Corporate</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 3: Avoor Networks India -->
+                <a href="https://avoornetworks.co.in" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 150ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Avoor India</h3>
+                            <p class="text-sm text-slate-500 font-medium">Regional</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 4: Avoor Networks (.in) -->
+                <a href="https://avoornetworks.in" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 200ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Avoor (.in)</h3>
+                            <p class="text-sm text-slate-500 font-medium">Landing Page</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 5: Avoor Meddplus -->
+                <a href="https://avoormeddplus.com" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 250ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Avoor Meddplus</h3>
+                            <p class="text-sm text-slate-500 font-medium">Healthcare</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 6: VoIP Trainers -->
+                <a href="https://voiptrainers.com" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 300ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center text-yellow-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="phone-call" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">VoIP Trainers</h3>
+                            <p class="text-sm text-slate-500 font-medium">Education</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 7: ChatIQ Live -->
+                <a href="https://chatiq.live" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 350ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center text-brand-green group-hover:scale-110 transition-transform">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">ChatIQ Live</h3>
+                            <p class="text-sm text-slate-500 font-medium">Automation</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 8: SmartIQ Live -->
+                <a href="https://smartiq.live" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 400ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">SmartIQ Live</h3>
+                            <p class="text-sm text-slate-500 font-medium">Analytics</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 9: Sinisys Soft -->
+                <a href="https://sinisyssoft.com" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 450ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="monitor" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Sinisys Soft</h3>
+                            <p class="text-sm text-slate-500 font-medium">Agency</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 10: Jeevas Shop -->
+                <a href="https://jeevas.shop" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 500ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Jeevas Shop</h3>
+                            <p class="text-sm text-slate-500 font-medium">Retail</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 11: Chennai Lokesh Travels -->
+                <a href="https://chennailokeshtourandtravels.com" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 550ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="plane" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Lokesh Travels</h3>
+                            <p class="text-sm text-slate-500 font-medium">Travel</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Project 12: Thirumalai Engineering -->
+                <a href="https://thirumalaiengg.org" target="_blank" class="group flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-purple-100 transition-all reveal" style="transition-delay: 600ms;">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="wrench" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-purple transition-colors">Thirumalai Engg</h3>
+                            <p class="text-sm text-slate-500 font-medium">Industrial</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-50 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-purple font-bold uppercase tracking-wider text-xs mb-3 block">Get In Touch</span>
+                <h2 class="text-4xl font-bold text-slate-900">Let's <span class="gradient-text-animated">Work Together</span></h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto items-start">
+                
+                <!-- Form Card (Moved to Left as requested) -->
+                <div class="lg:w-1/2 bg-white rounded-3xl p-10 shadow-2xl border border-slate-100 reveal order-1">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Send Me a Message</h3>
+                    <form onsubmit="event.preventDefault(); sendEmail();" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Your Name</label>
+                                <input type="text" id="senderName" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-purple text-base transition-colors" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                                <input type="email" id="senderEmail" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-purple text-base transition-colors" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold text-slate-700">Message</label>
+                                <button type="button" onclick="draftMessage()" class="text-xs text-brand-purple font-bold flex items-center gap-1 bg-purple-50 px-3 py-1.5 rounded-full hover:bg-purple-100 transition-colors">
+                                    <i data-lucide="sparkles" class="w-3 h-3"></i> AI Auto-Draft
+                                </button>
+                            </div>
+                            <textarea id="messageBox" rows="5" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-purple text-base resize-none transition-colors" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl btn-primary font-bold shadow-lg text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                            Send Message <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Cards (Moved to Right) -->
+                <div class="lg:w-1/2 flex flex-col gap-6 reveal order-2" style="transition-delay: 200ms;">
+                    <!-- Location -->
+                    <div class="bg-white p-8 rounded-3xl flex items-center gap-6 border border-slate-100 shadow-md hover:shadow-lg transition-all">
+                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue">
+                            <i data-lucide="map-pin" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wide">Location</p>
+                            <p class="text-xl font-bold text-slate-900">Chennai, India</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <a href="mailto:nagarajmca2525@gmail.com" class="bg-white p-8 rounded-3xl flex items-center gap-6 border border-slate-100 shadow-md hover:shadow-lg transition-all group">
+                        <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <i data-lucide="mail" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wide">Email</p>
+                            <p class="text-xl font-bold text-slate-900 break-all">nagarajmca2525@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/nagaraj-m-/" target="_blank" class="bg-white p-8 rounded-3xl flex items-center gap-6 border border-slate-100 shadow-md hover:shadow-lg transition-all group">
+                        <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="linkedin" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wide">LinkedIn</p>
+                            <p class="text-xl font-bold text-slate-900">Check Profile</p>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp Quick Chat -->
+                    <div class="bg-brand-green p-8 rounded-3xl text-white mt-4 shadow-xl relative overflow-hidden group">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="bg-white/20 p-2 rounded-xl"><i data-lucide="message-circle" class="w-8 h-8"></i></div>
+                                <h3 class="text-2xl font-bold">Quick Chat?</h3>
+                            </div>
+                            <p class="mb-6 opacity-90 text-sm leading-relaxed font-medium">Connect with me on WhatsApp for a faster response to your queries.</p>
+                            <a href="https://wa.me/916374336909" target="_blank" class="w-full py-4 bg-white hover:bg-slate-50 text-brand-green rounded-xl font-bold flex items-center justify-center gap-2 transition-all text-base shadow-sm">
+                                Start Chat <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                        <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center items-center gap-2 mb-4 font-bold text-xl tracking-tight">
+                <span>Nagaraj M</span><span class="text-brand-purple">.</span>
+            </div>
+            <p class="text-slate-500 text-sm font-medium">© <span id="year"></span>. Built with Passion, React & Tailwind.</p>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget (Added AI Logo) -->
+    <button onclick="toggleChat()" class="fixed bottom-6 right-6 z-50 bg-white text-brand-purple p-4 rounded-full shadow-2xl border border-purple-100 hover:scale-110 transition-all flex items-center justify-center gap-3 group">
+        <div class="relative">
+            <i data-lucide="bot" class="w-6 h-6"></i>
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+        </div>
+        <span class="font-bold text-sm hidden md:inline group-hover:text-brand-blue transition-colors">AI Assistant</span>
+    </button>
+
+    <div id="chatWidget" class="fixed bottom-24 right-6 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 hidden z-50 overflow-hidden flex-col h-[450px]">
+        <div class="bg-gradient-to-r from-brand-purple to-brand-blue text-white p-4 flex justify-between items-center shadow-md">
+            <div class="flex items-center gap-3 font-bold">
+                <div class="bg-white/20 p-1.5 rounded-lg"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                Portfolio AI
+            </div>
+            <button onclick="toggleChat()" class="hover:bg-white/20 rounded-lg p-1 transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+            <div class="flex justify-start"><div class="bg-white p-4 rounded-2xl rounded-tl-none text-sm text-slate-700 shadow-sm border border-slate-100 max-w-[90%] leading-relaxed">Hi there! 👋 I'm Nagaraj's AI assistant. I can tell you about his skills, experience, or projects. How can I help?</div></div>
+        </div>
+        <div class="p-4 bg-white border-t border-slate-100 flex gap-2">
+            <input type="text" id="chatInput" class="flex-1 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-purple transition-colors" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+            <button onclick="sendChatMessage()" class="p-3 bg-brand-purple text-white rounded-xl hover:bg-indigo-600 transition-colors shadow-md"><i data-lucide="send" class="w-4 h-4"></i></button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const API_KEY = "AIzaSyDAp7XYNnwFITmHc9IVRIm8yZVZ5GEGK-w";
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        async function callGemini(prompt, sysInstruction) {
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], systemInstruction: { parts: [{ text: sysInstruction }] } })
+                });
+                const data = await response.json();
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm busy right now, please try later.";
+            } catch (e) { return "Error connecting to AI."; }
+        }
+
+        async function draftMessage() {
+            const name = document.getElementById('senderName').value;
+            const msgBox = document.getElementById('messageBox');
+            if(!name) return alert("Please enter your name first.");
+            msgBox.value = "Drafting...";
+            const prompt = `Write a professional inquiry to Nagaraj M from ${name}. Tone: Professional.`;
+            msgBox.value = await callGemini(prompt, "You are a professional email assistant.");
+        }
+
+        function sendEmail() {
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const msg = document.getElementById('messageBox').value;
+            window.location.href = `mailto:nagarajmca2525@gmail.com?subject=Inquiry from Portfolio&body=Name: ${name}%0AEmail: ${email}%0A%0A${msg}`;
+        }
+
+        // Chatbot
+        const chatWidget = document.getElementById('chatWidget');
+        const chatMsgs = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        
+        function toggleChat() { chatWidget.classList.toggle('hidden'); chatWidget.classList.toggle('flex'); }
+        
+        // Auto-open chat after 3 seconds
+        setTimeout(() => {
+            if (chatWidget.classList.contains('hidden')) {
+                toggleChat();
+            }
+        }, 3000);
+        
+        const context = "Nagaraj M is a Digital Marketing Executive & WP Developer with 2+ years exp. Skills: Meta Ads, Google Ads, SEO, Odoo CRM. Location: Chennai.";
+        
+        async function sendChatMessage() {
+            const text = chatInput.value.trim();
+            if(!text) return;
+            addMsg(text, 'end', 'bg-brand-purple text-white rounded-tr-none');
+            chatInput.value = '';
+            
+            const reply = await callGemini(text, `You are Nagaraj's AI assistant. Context: ${context}. Keep answers short.`);
+            addMsg(reply, 'start', 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none');
+        }
+
+        function addMsg(text, align, classes) {
+            const div = document.createElement('div');
+            div.className = `flex justify-${align}`;
+            div.innerHTML = `<div class="p-4 rounded-2xl text-sm max-w-[85%] leading-relaxed ${classes}">${text}</div>`;
+            chatMsgs.appendChild(div);
+            chatMsgs.scrollTop = chatMsgs.scrollHeight;
+        }
+    </script>
+</body>
+</html>
