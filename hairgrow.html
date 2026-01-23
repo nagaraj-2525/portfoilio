@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* --- General Styles --- */
+        :root {
+            --primary-color: #2563eb;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-accent: #f8fafc;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-section {
+            padding: 80px 20px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- Header Styling --- */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 50px;
+            opacity: 0; /* For animation */
+            transform: translateY(30px);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* --- Responsive Dashboard Wrapper --- */
+        .dashboard-wrapper {
+            width: 100%;
+            max-width: 1140px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0; /* For animation */
+            transform: translateY(30px);
+            position: relative;
+        }
+
+        /* Hover Effect */
+        .dashboard-wrapper:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* The 16:9 Magic */
+        .aspect-ratio-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* (9 / 16) * 100 */
+            height: 0;
+            background: #eee; /* Placeholder color while loading */
+        }
+
+        .aspect-ratio-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- Animation Class (Toggled via JS) --- */
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* --- Mobile Adjustments --- */
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 1.8rem; }
+            .portfolio-section { padding: 50px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="portfolio-section">
+    <div class="section-header" id="animate-header">
+        <h2>Data Analytics Insights</h2>
+        <p>Interactive Power BI report showcasing key performance indicators and trend analysis. Explore the data by interacting with the filters and charts below.</p>
+    </div>
+
+    <div class="dashboard-wrapper" id="animate-dashboard">
+        <div class="aspect-ratio-container">
+            <iframe 
+                title="Key Performance Dashboard" 
+                src="https://app.powerbi.com/reportEmbed?reportId=5c8aecfd-1ede-45cb-b311-37470d6fb080&autoAuth=true&ctid=30e4178f-8e6c-4138-be0b-40c25401e93b" 
+                allowFullScreen="true">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Minimal JS using Intersection Observer for smooth entrance
+    const observerOptions = {
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+            }
+        });
+    }, observerOptions);
+
+    // Target the elements to animate
+    document.querySelectorAll('#animate-header, #animate-dashboard').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
